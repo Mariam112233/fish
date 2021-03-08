@@ -1,0 +1,59 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.middlebtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+.btnicon{
+    display: inline-block;
+    width: 90px;                    /*ความกว้างกรอบของไอคอน*/
+    height: 90px;                   /*ความสูงกรอบของไอคอน*/
+    background: #f1f1f1;          /*สีภายในกรอบของไอคอน*/
+    margin: 10px;                   /*ระยะห่าง ระหว่างกรอบของไอคอน*/
+    border-radius: 30%;             /*ขอบกรอบของไอคอนจะมีความรี*/
+    box-shadow: 0 5px 15px -5px #00000070;              /*shadow ของขอบไอคอน*/
+    color: #3498db;                 /*สีของไอคอน*/
+    overflow: hidden;
+    position: relative;
+}
+.btnicon i{
+    line-height: 70px;
+    font-size: 26px;              /*ขนาดไอคอนภายในกรอบ*/
+    transition: 0.2s linear;
+}
+.btnicon:hover i{                       /*หลังแตะที่ไอคอน*/
+    transform: scale(1.3);               /*ไอคอนมีขนาดใหญ่ขึ้น*/
+    color: #f1f1f1;                    /*สีไอคอนเปลี่ยนจากเดิม*/
+}
+.btnicon::before{                           /*กรอบไอคอน ก่อนกดหรือแตะ*/
+    content: "";
+    position: absolute;
+    width: 120%;                        /*ความกว้าง ของสีภายใน bg*/
+    height: 120%;                       /*ความสูง ของสีภายใน bg*/
+    background: #3498db;
+    transform: rotate(50deg);           /*จาก สีภายใน bg เป็นรูปสีเหลี่ยมเป็น มุมเหลี่ยมแหลมๆ*/
+    left: -110%;                        
+    top: 90%;
+}
+.btnicon:hover::before{
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+@keyframes aaa {
+    0%{
+        left: -110%;                        
+        top: 90%;
+    }50%{
+        left: 10%;                        
+        top: -30%;
+    }100%{
+        top: -10%;
+        left: -10%;
+    }
+}

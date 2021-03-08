@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+}
+.contact-section{
+    background: url(images/snow.jpg) no-repeat center;
+    background-size: cover;
+    padding: 40px 0;                            /*พื้นหลังกว้างขึ้น เลื่อนลง*/
+
+    
+}
+.contact-section h1{
+    text-align: center;
+    color: #000000;
+}
+.border-form{
+    width: 100px;
+    height: 10px;
+    background: #FFC312;    /* #34495e */
+    margin: 40px auto; 
+}
+.contact-form{
+    max-width: 600px;
+    margin: auto;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.contact-form-text{             /*ช่องป้อนข้อมูล*/
+    display: block;             /*ช่องป้อนข้อมูล แสดงเป็น Block แต่ล่ะบรรทัด*/
+    width: 100%;                /*ความยาวของ Block ช้อนข้อมูล แต่ล่ะบรรทัด*/
+    box-sizing: border-box;
+    margin: 16px 0;
+    border: 0;
+    background: #ffffff;
+    padding: 20px 40px;
+    outline: none;
+    color: #000000;
+    transition: 0.5s; 
+    border-radius: 10px;         /*ขอบของกรอบเทา Login มุมป็นรี*/
+}
+.contact-form-text:focus{
+    box-shadow: 0 0 10px 4px #FFC312;
+}
+textarea.contact-form-text{
+    resize: none;               /* กล่อง textarea ไม่สามารถขยายขนาดด้วยตัวเองได้ */
+    height: 120px;              /* กำหนดความสูงของกล่อง textarea */
+}
+.contact-form-btn{
+    float: right;
+    border: 0;
+    background: #111;
+    color: #fff;
+    padding: 12px 50px;
+    border-radius: 20px;    /*การทำให้มุมของกรอบเป็นรีๆ*/
+    cursor: pointer;        /*การทำให้ลูกศรชี้ปกติ กลายเป็นลูกมือชี้แทน */
+    transition: 0.5s;
+}
+.contact-form-btn:hover{       /*หลังการกดปุ่ม*/
+    background: #FFC312;
+}

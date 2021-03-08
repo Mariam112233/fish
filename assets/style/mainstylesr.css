@@ -1,0 +1,369 @@
+/* =================== ส่วนข้างบน =================== */
+ 
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+}
+.header{
+    height: 100px; 
+    width: 100%;
+    background: #000000;
+    padding: 0 px;              /*test add 1 from  padding: 0 20px*/
+    color: #fff;
+    position: fixed;            /*test add 2*/
+    top: 0;                 /*test add 3*/
+    /* border: 2px solid #FFC312; */
+}
+.logo{
+    line-height: 250%;  
+    color: #FFC312;   
+    /* float: left;          .menu left */
+    text-transform: uppercase;
+    font-size: 35px; 
+    text-align: center;                
+}
+.logo i{
+    
+    margin-right: 10px;
+}
+.menu{
+    float: right;
+    line-height: 100px;
+}
+.menu a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;                /*ระวห่างเมนูห่างกัน 10px*/
+    transition: 0.4s;
+}
+.show-menu-btn,.hide-menu-btn{
+    transition: 0.4s;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;             /*ปิดการแสดง จุดๆ 3 อัน */     
+}
+.show-menu-btn{
+    float: right;               /* จุดๆ 3 อัน ย้ายมาอยู่ บน-ขวา*/
+}
+.show-menu-btn i{ 
+    line-height: 100px;        /* จุดๆ 3 อัน มาต่อท้ายเมนูและอยู่ตำแหน่งเดี่ยวกับเมนู*/
+}
+.menu a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover{
+    color: #FFC312;         /* สีของปุ่มเมนูที่เราชี้อยู่ขณะนี้*/
+}
+#chk{
+    position: absolute;
+    visibility: hidden;
+    z-index: -1111;
+}
+
+/* .content{
+    
+} */
+
+/*.content img{                ปรับขนาดรูปตามความต้องการ
+    width: 100%;
+    max-width: 700px;   
+    margin: 20px 0;
+}
+.content p{
+    text-align: justify;            ให้ตัวอักษรชิดขอบซ้าย ชิดขอบขวา
+} */
+
+@media screen and (max-width:800px){               /*responsive ถ้าขนาดจอเล็กลงเมนูก็จะหาย แต่จะมีจุดๆ 3 อันขึ้นมาแทน */
+    .show-menu-btn,.hide-menu-btn{
+        display: block; 
+    }
+    .menu{                        /*ให้ขึ้นเมนู ในปุ่มจุดๆ 3 อัน*/
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #333;
+        right: -100%;
+        /* left: 0; */
+        top: 0; 
+        text-align: center;
+        padding: 80px 0;
+        line-height: normal;
+        transition: 0.7s;
+    }
+    .menu a{
+        display: block;          /*เปลี่ยนเมนู ที่อยุ่ในบรรทัดเดียวให้มาอยู่คนละบรรทัด*/
+        padding: 20px;
+    }
+    .hide-menu-btn{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    #chk:checked ~ .menu{           /*เวลากด จุดๆ 3 อัน แล้วจะแสดงหน้าเมนูออกมาให้เห็น*/
+        right: 0;
+    }
+} 
+
+/* =================== ส่วนขของเมนูข้างซ้าย Side bar =================== */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none; 
+}
+.middle{
+    position: fixed;       /* absolute */
+    top: 100px;                   /*เลื่อนลง จากข้างบน*/
+    left: 20px;                  /*เลื่อนจากข้างซ้าย*/
+    transform: translate(0,0);       /*เลื่อน 50% 50% อยู่ตรงกลาง*/
+}
+.middle_menu{
+    width: 280px; 
+    /* border-radius: 8px; */
+    overflow: hidden;   
+}
+.item{
+    /* border-top: 1px solid #FFC312; */
+    overflow: hidden;
+}
+.btn{
+    display: block;
+    padding: 14px 20px ;
+    background: #000000;
+    color: white;
+    position: relative;
+    border: 1px solid #FFC312;
+}
+.btn:before{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #000000;
+    left: 20px;
+    bottom:-5px;
+    transform: rotate(45deg); 
+}
+.btn i{ 
+    margin-right: 10px;
+}
+.smenu{
+    background: #FFC312;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    max-height: 0;                /*ซ่อน เมนูย่อย แสดงแค่เมนูหลัก*/
+}
+.smenu a{
+    display: block;
+    padding: 16px 26px;
+    color: white;
+    font-size: 14px;
+    margin: 4px 0;
+    position: relative;
+}
+.smenu a:before{
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #000000;         /*ขึ้นเส้นชี้ข้างซ้ายสุด*/
+    left: 0;                       /*ขึ้นเส้นชี้ข้างซ้ายสุด*/
+    top: 0;                        /*ขึ้นเส้นชี้ข้างซ้ายสุด*/
+    transition: 0.35;
+    opacity: 0;                    /*ไม่ขึ้นเส้นชี้ข้างซ้ายสุด*/
+}
+.smenu a:hover:before{
+    opacity: 1;                     /*ขึ้นเส้นชี้ข้างซ้ายสุด 1 เส้นตรงตำแหน่งที่เราชี้อยู่*/
+}
+.item:target .smenu{
+    max-height: 10em;
+}
+
+/* ============================================== Form ============================================= */
+/* .border-bottom{
+    text-align: center;
+    padding-top: 100px;
+    
+}
+.form-group{
+    width: 100%; */
+    /* padding: 20px 300px;      ตัวเลขตัวที่ 1 ระยะห่างบน-ล่าง ของกล่อง ตัวเลขตัวที่ 2 ระยะหรือตำแหน่งของขอบกรอบข้างซ้าย */
+    /* margin: 8px 0;         ตัวเลขตัวที่ 1 ระยะห่างบน-ล่าง ของกล่อง ตัวเลขตัวที่ 2 */
+  /* box-sizing: border-box; */
+/* } */
+
+
+/* ================================ End Form ====================================== */
+
+/*      Customer New     */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+}
+.contact-section{
+    /* margin-top: 100px;   เลื่อนลงจากด้านบน */
+    /* background: url(images/snow.jpg) no-repeat center; */
+    background-size: cover;
+    padding: 40px 0;                            /*พื้นหลังกว้างขึ้น เลื่อนลง*/
+
+    
+}
+.contact-section h1{
+    text-align: center;
+    color: #000000;
+}
+.border-form{
+    width: 400px;
+    height: 10px;
+    background: #FFC312;    /* #34495e */
+    margin: 40px auto; 
+}
+.contact-form{
+    max-width: 600px;
+    margin: auto;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.contact-form-text{             /*ช่องป้อนข้อมูล*/
+    display: block;             /*ช่องป้อนข้อมูล แสดงเป็น Block แต่ล่ะบรรทัด*/
+    width: 100%;                /*ความยาวของ Block ช้อนข้อมูล แต่ล่ะบรรทัด*/
+    box-sizing: border-box;
+    margin: 16px 0;
+    border: 0;
+    background: #ffffff;
+    padding: 20px 40px;
+    outline: none;
+    color: #000000;
+    transition: 0.5s; 
+    border-radius: 10px;         /*ขอบของกรอบเทา Login มุมป็นรี*/
+}
+.contact-form-text:focus{
+    box-shadow: 0 0 10px 4px #FFC312;
+}
+textarea.contact-form-text{
+    resize: none;               /* กล่อง textarea ไม่สามารถขยายขนาดด้วยตัวเองได้ */
+    height: 120px;              /* กำหนดความสูงของกล่อง textarea */
+}
+.contact-form-btn{
+    float: right;
+    border: 0;
+    background: #111;
+    color: #fff;
+    padding: 12px 50px;
+    border-radius: 20px;    /*การทำให้มุมของกรอบเป็นรีๆ*/
+    cursor: pointer;        /*การทำให้ลูกศรชี้ปกติ กลายเป็นลูกมือชี้แทน */
+    transition: 0.5s;
+}
+.contact-form-btn:hover{       /*หลังการกดปุ่ม*/
+    background: #FFC312;
+}
+/* .container-fuit{
+    background: url(../images/snow.jpg) no-repeat center;
+    background-size: cover;
+    
+
+} */
+.col-3{
+    margin-top: 100px;   /*เลื่อนลงจากด้านบน */
+    align-content: left;
+    background-color: #000099;
+}
+.col-9{
+    margin-top: 100px;   /*เลื่อนลงจากด้านบน*/
+    align-content: center;
+    background-color: #FFC312;
+}
+
+/* =================== Slideshow img========================= */
+
+.slider{
+    /* width: 1000px;
+    height: 700px; */
+    width: 600px;
+    height: 800px;
+    top: 5px;               /*รูปเลื่อนลงจากด้านบน*/
+    left: 60px;
+    /* overflow: hidden; */
+
+    background: url(../images/1.jpg) no-repeat;
+    margin: 10px auto;
+    animation: slide 10s infinite;
+
+}
+@keyframes slide{
+    25%{
+        background: url(../images/2.jpg) no-repeat;    
+    }
+    50%{
+        background: url(../images/3.jpg) no-repeat;    
+    }
+    75%{
+        background: url(../images/1.jpg) no-repeat;    
+    }
+}
+
+/* ===================End Slideshow img========================= */
+
+/* ===================Button icon======================= */
+
+.middlebtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+.btnicon{
+    display: inline-block;
+    width: 90px;                    /*ความกว้างกรอบของไอคอน*/
+    height: 90px;                   /*ความสูงกรอบของไอคอน*/
+    background: #f1f1f1;          /*สีภายในกรอบของไอคอน*/
+    margin: 10px;                   /*ระยะห่าง ระหว่างกรอบของไอคอน*/
+    border-radius: 30%;             /*ขอบกรอบของไอคอนจะมีความรี*/
+    box-shadow: 0 5px 15px -5px #00000070;              /*shadow ของขอบไอคอน*/
+    color: #3498db;                 /*สีของไอคอน*/
+    overflow: hidden;
+    position: relative;
+}
+.btnicon i{
+    line-height: 70px;
+    font-size: 26px;              /*ขนาดไอคอนภายในกรอบ*/
+    transition: 0.2s linear;
+}
+.btnicon:hover i{                       /*หลังแตะที่ไอคอน*/
+    transform: scale(1.3);               /*ไอคอนมีขนาดใหญ่ขึ้น*/
+    color: #f1f1f1;                    /*สีไอคอนเปลี่ยนจากเดิม*/
+}
+.btnicon::before{                           /*กรอบไอคอน ก่อนกดหรือแตะ*/
+    content: "";
+    position: absolute;
+    width: 120%;                        /*ความกว้าง ของสีภายใน bg*/
+    height: 120%;                       /*ความสูง ของสีภายใน bg*/
+    background: #3498db;
+    transform: rotate(50deg);           /*จาก สีภายใน bg เป็นรูปสีเหลี่ยมเป็น มุมเหลี่ยมแหลมๆ*/
+    left: -110%;                        
+    top: 90%;
+}
+.btnicon:hover::before{
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+@keyframes aaa {
+    0%{
+        left: -110%;                        
+        top: 90%;
+    }50%{
+        left: 10%;                        
+        top: -30%;
+    }100%{
+        top: -10%;
+        left: -10%;
+    }
+}
+
+
+/* ===================End Button icon======================= */
