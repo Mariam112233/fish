@@ -1,0 +1,116 @@
+/* @import url('https://fonts.googleapis.com/css?family=Marmelad&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Pridi&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+body{
+    font-family: 'Pridi', serif;  /*'Mali', cursive;*/
+    background: #d2d4d4;
+}
+.wrapper{
+    width:100%;
+    max-width: 680px;
+    margin: 100px auto 0;
+    padding: 20px;
+    box-shadow: border-box;
+}
+.content{  /*ให้หัวข้ออยู่ตรงกลาง*/
+    text-align: center;
+}
+.content h1{
+    letter-spacing: 1px;
+}
+.form{
+    width: 100%;
+    margin: 25px  0;
+}
+.top-form,
+.middle-form,
+.bottom-form{
+    width: 100%;
+    min-height: 65px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.form input[type="text"],
+.form textarea{
+    padding: 15px 5px;
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    outline: none;
+    transition: all 0.2s ease;
+
+}
+.form input:focus,  /*ส่วนที่ทำให้ขอบของกรอบมีสี*/
+.form textarea:focus{
+    border-color: #009879; 
+    box-shadow: inset 0 1px 1px rgba(0, 0,0,0.0125),
+                 0 0 8px rgba(76, 161,171, 0.5);
+}
+.form .label{
+    margin-bottom: 5px;
+    text-transform: capitalize; 
+}
+/* .top-form .inner-form{
+    width: 29.9%;
+    float: left;
+    margin-right: 5%; 
+} */
+.top-form .inner-form:last-child{
+    margin-right: 0; 
+}
+.middle-form{
+    clear:both;
+}
+.bootom-form textarea{
+    height:120px;
+}
+.btn{
+    background: #4ca1af;
+    width: 100px;
+    padding: 10px 0;
+    border-radius: 2px;
+    text-align: center;
+    text-transform:uppercase;
+    color:#fff;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+.btn2{
+    background: #f0290f;
+    width: 100px;
+    padding: 10px 0;
+    border-radius: 2px;
+    text-align: center;
+    text-transform:uppercase;
+    color:#fff;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+::-webkit-input-placeholder{
+    font-family:   'Mali', cursive;
+    text-transform: capitalize;
+}
+::-moz-input-placeholder{
+    font-family:   'Mali', cursive;
+    text-transform: capitalize;
+}
+::-ms-input-placeholder{
+    font-family:   'Mali', cursive;
+    text-transform: capitalize;
+}
+@media screen and (max-width: 460px){
+    .wrapper{
+        margin: 25px auto 0;
+    }
+    .top-form .inner-form{
+        width: 100%;
+       margin: 5px 0;
+    }
+}
